@@ -1,159 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختبار الهندسة والمساحات - الصف الثالث متوسط</title>
-    <meta name="description" content="اختبار تفاعلي للهندسة والمساحات للصف الثالث متوسط - المنهج السعودي">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <!-- Background Decorations -->
-    <div class="bg-decoration decoration-1"></div>
-    <div class="bg-decoration decoration-2"></div>
-    <div class="bg-decoration decoration-3"></div>
-
-    <!-- Main Container -->
-    <div class="container">
-        <!-- Welcome Screen -->
-        <div id="welcomeScreen" class="screen active">
-            <div class="card welcome-card">
-                <div class="sparkle-icon">📐</div>
-                <h1 class="main-title">اختبار الهندسة والمساحات</h1>
-                <p class="subtitle">الصف الثالث متوسط</p>
-                <div class="welcome-content">
-                    <div class="info-box">
-                        <div class="info-item">
-                            <span class="icon">�</span>
-                            <span class="text">١٠ أسئلة متنوعة</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="icon">📏</span>
-                            <span class="text">هندسة ومساحات</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="icon">🎯</span>
-                            <span class="text">اختبري معلوماتك</span>
-                        </div>
-                    </div>
-                    <div class="student-info">
-                        <label for="studentName" class="input-label">
-                            <span class="icon">👤</span>
-                            اسمك (اختياري)
-                        </label>
-                        <input type="text" id="studentName" class="name-input" placeholder="أدخلي اسمك هنا..."
-                            maxlength="30">
-                    </div>
-                    <button id="startBtn" class="btn btn-primary">
-                        <span>ابدأي الاختبار</span>
-                        <span class="btn-icon">🚀</span>
-                    </button>
-                    <div class="dedication">
-                        <p>💝 مُهدى إلى هناء، الفتاة الرائعة صاحبة القلب الطيب والعقل المتميز 🌸</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Quiz Screen -->
-        <div id="quizScreen" class="screen">
-            <div class="quiz-header">
-                <div class="progress-container">
-                    <div class="progress-info">
-                        <span class="progress-text">السؤال <span id="currentQuestion">1</span> من <span
-                                id="totalQuestions">10</span></span>
-                        <span class="score-text">النقاط: <span id="currentScore">0</span></span>
-                    </div>
-                    <div class="progress-bar">
-                        <div id="progressFill" class="progress-fill"></div>
-                    </div>
-                </div>
-                <div class="dedication-small">
-                    <p>💕 لهناء المتميزة دائماً</p>
-                </div>
-            </div>
-
-            <div class="card quiz-card">
-                <div class="question-container">
-                    <div class="question-number">سؤال <span id="questionNum">1</span></div>
-                    <h2 id="questionText" class="question-text"></h2>
-                </div>
-
-                <div id="answersContainer" class="answers-container">
-                    <!-- Answers will be inserted here -->
-                </div>
-
-                <div class="quiz-actions">
-                    <button id="nextBtn" class="btn btn-secondary" style="display: none;">
-                        <span>السؤال التالي</span>
-                        <span class="btn-icon">→</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Results Screen -->
-        <div id="resultsScreen" class="screen">
-            <div class="card results-card">
-                <div class="results-header">
-                    <div id="resultEmoji" class="result-emoji">🎉</div>
-                    <h2 id="resultTitle" class="result-title">أحسنتِ!</h2>
-                    <p id="studentNameDisplay" class="student-name-display"></p>
-                </div>
-
-                <div class="score-display">
-                    <div class="score-circle">
-                        <svg class="score-ring" width="200" height="200">
-                            <circle class="score-ring-bg" cx="100" cy="100" r="85"></circle>
-                            <circle id="scoreRingFill" class="score-ring-fill" cx="100" cy="100" r="85"></circle>
-                        </svg>
-                        <div class="score-content">
-                            <div class="final-score" id="finalScore">0</div>
-                            <div class="score-label">من ١٠</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="result-message" id="resultMessage"></div>
-
-                <div class="stats-container">
-                    <div class="stat-item">
-                        <div class="stat-icon correct">✓</div>
-                        <div class="stat-value" id="correctAnswers">0</div>
-                        <div class="stat-label">إجابات صحيحة</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-icon wrong">✗</div>
-                        <div class="stat-value" id="wrongAnswers">0</div>
-                        <div class="stat-label">إجابات خاطئة</div>
-                    </div>
-                </div>
-
-                <div class="results-actions">
-                    <button id="retryBtn" class="btn btn-primary">
-                        <span>إعادة الاختبار</span>
-                        <span class="btn-icon">🔄</span>
-                    </button>
-                </div>
-
-                <div class="dedication">
-                    <p>🌟 إلى هناء الذكية والمجتهدة، أنتِ نجمة مضيئة دائماً 💖</p>
-                </div>
-
-                <div class="copyright">
-                    <p>© 2025 Abdulaziz. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-
-</html>
