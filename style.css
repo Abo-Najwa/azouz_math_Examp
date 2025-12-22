@@ -5,29 +5,26 @@
 }
 
 :root {
-    /* Dark Web Horror Palette */
     --void-black: #000000;
     --blood-red: #8b0000;
     --death-red: #ff0000;
     --ghost-white: #f0f0f0;
     --shadow-gray: #1a1a1a;
     --toxic-green: #39ff14;
-    --corpse-gray: #4a4a4a;
+    --corpse-gray: #6a6a6a;
     --warning-yellow: #ffff00;
 }
 
 body {
-    font-family: 'Courier New', 'Tajawal', monospace;
+    font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
     background: var(--void-black);
-    background-image:
-        radial-gradient(circle at 50% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 0, 0, 0.02) 2px, rgba(255, 0, 0, 0.02) 4px);
     min-height: 100vh;
     color: var(--ghost-white);
     overflow-x: hidden;
     position: relative;
 }
 
+/* Animated Matrix Background */
 body::before {
     content: '';
     position: fixed;
@@ -36,27 +33,39 @@ body::before {
     right: 0;
     bottom: 0;
     background:
-        radial-gradient(circle at 20% 80%, rgba(139, 0, 0, 0.2) 0%, transparent 40%),
-        radial-gradient(circle at 80% 20%, rgba(255, 0, 0, 0.15) 0%, transparent 40%);
+        radial-gradient(circle at 20% 80%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
-    animation: bloodPulse 4s ease-in-out infinite;
+    animation: bloodPulse 6s ease-in-out infinite;
 }
 
 @keyframes bloodPulse {
 
     0%,
     100% {
-        opacity: 0.5;
+        opacity: 0.3;
     }
 
     50% {
-        opacity: 0.8;
+        opacity: 0.6;
     }
 }
 
+/* Matrix Rain Effect */
+.matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.1;
+}
+
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
@@ -65,55 +74,68 @@ body::before {
 
 /* Header */
 .header {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.95), rgba(26, 26, 26, 0.95));
-    padding: 25px 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.98), rgba(26, 26, 26, 0.95));
+    padding: 30px 0;
     box-shadow:
-        0 4px 30px rgba(139, 0, 0, 0.5),
-        inset 0 -2px 10px rgba(255, 0, 0, 0.3);
+        0 5px 40px rgba(139, 0, 0, 0.6),
+        inset 0 -3px 15px rgba(255, 0, 0, 0.4);
     text-align: center;
     border-bottom: 3px solid var(--blood-red);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo {
-    font-size: 36px;
-    font-weight: 800;
+    font-size: 42px;
+    font-weight: 900;
     color: var(--death-red);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     text-shadow:
-        0 0 20px var(--death-red),
-        0 0 40px var(--blood-red),
-        0 0 60px var(--blood-red);
-    letter-spacing: 4px;
-    animation: flicker 2s infinite;
+        0 0 30px var(--death-red),
+        0 0 60px var(--blood-red),
+        0 0 90px var(--blood-red),
+        2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 6px;
+    animation: glitchFlicker 3s infinite;
+    font-family: 'Impact', 'Arial Black', sans-serif;
 }
 
-@keyframes flicker {
+@keyframes glitchFlicker {
 
     0%,
     100% {
         opacity: 1;
+        text-shadow: 0 0 30px var(--death-red), 0 0 60px var(--blood-red);
+    }
+
+    25% {
+        opacity: 0.9;
+        text-shadow: -2px 0 30px var(--death-red), 2px 0 60px var(--blood-red);
     }
 
     50% {
-        opacity: 0.8;
+        opacity: 1;
+        text-shadow: 2px 0 30px var(--death-red), -2px 0 60px var(--blood-red);
     }
 
     75% {
-        opacity: 0.9;
+        opacity: 0.95;
+        text-shadow: 0 0 30px var(--death-red), 0 0 60px var(--blood-red);
     }
 }
 
 .dedication {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--warning-yellow);
     font-weight: 700;
-    text-shadow: 0 0 10px var(--warning-yellow);
-    letter-spacing: 2px;
-    animation: blink 1.5s infinite;
+    text-shadow: 0 0 15px var(--warning-yellow);
+    letter-spacing: 3px;
+    animation: warningBlink 2s infinite;
 }
 
-@keyframes blink {
+@keyframes warningBlink {
 
     0%,
     49%,
@@ -123,29 +145,29 @@ body::before {
 
     50%,
     99% {
-        opacity: 0.3;
+        opacity: 0.4;
     }
 }
 
 /* Main */
 .main {
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
 /* Welcome Section */
 .welcome-section {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 .welcome-card {
-    background: rgba(26, 26, 26, 0.9);
+    background: rgba(26, 26, 26, 0.95);
     border-radius: 0;
-    padding: 50px 40px;
+    padding: 60px 40px;
     text-align: center;
     box-shadow:
-        0 0 40px rgba(139, 0, 0, 0.5),
-        inset 0 0 30px rgba(0, 0, 0, 0.8);
-    border: 2px solid var(--blood-red);
+        0 0 50px rgba(139, 0, 0, 0.6),
+        inset 0 0 40px rgba(0, 0, 0, 0.9);
+    border: 3px solid var(--blood-red);
     position: relative;
     overflow: hidden;
 }
@@ -153,23 +175,34 @@ body::before {
 .welcome-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
     background: repeating-linear-gradient(0deg,
             transparent,
-            transparent 10px,
-            rgba(139, 0, 0, 0.1) 10px,
-            rgba(139, 0, 0, 0.1) 11px);
+            transparent 2px,
+            rgba(139, 0, 0, 0.05) 2px,
+            rgba(139, 0, 0, 0.05) 4px);
+    animation: scanlines 8s linear infinite;
     pointer-events: none;
 }
 
+@keyframes scanlines {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(50px);
+    }
+}
+
 .icon-large {
-    font-size: 80px;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 20px var(--death-red));
-    animation: creepyFloat 4s ease-in-out infinite;
+    font-size: 90px;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 0 30px var(--death-red));
+    animation: creepyFloat 5s ease-in-out infinite;
 }
 
 @keyframes creepyFloat {
@@ -180,7 +213,7 @@ body::before {
     }
 
     25% {
-        transform: translateY(-10px) rotate(-5deg);
+        transform: translateY(-15px) rotate(-8deg);
     }
 
     50% {
@@ -188,74 +221,80 @@ body::before {
     }
 
     75% {
-        transform: translateY(-10px) rotate(5deg);
+        transform: translateY(-15px) rotate(8deg);
     }
 }
 
 .title-main {
-    font-size: 42px;
-    font-weight: 800;
+    font-size: 48px;
+    font-weight: 900;
     color: var(--death-red);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-shadow:
-        0 0 20px var(--death-red),
-        0 0 40px var(--blood-red);
-    letter-spacing: 3px;
+        0 0 25px var(--death-red),
+        0 0 50px var(--blood-red),
+        3px 3px 6px rgba(0, 0, 0, 0.8);
+    letter-spacing: 4px;
+    font-family: 'Impact', 'Arial Black', sans-serif;
 }
 
 .subtitle {
-    font-size: 18px;
+    font-size: 20px;
     color: var(--corpse-gray);
     margin-bottom: 30px;
     font-weight: 500;
     font-style: italic;
+    letter-spacing: 2px;
 }
 
 /* Section Title */
 .section-title {
-    font-size: 34px;
-    font-weight: 800;
+    font-size: 38px;
+    font-weight: 900;
     text-align: center;
     color: var(--death-red);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-shadow:
-        0 0 20px var(--death-red),
-        0 0 40px var(--blood-red);
-    letter-spacing: 3px;
+        0 0 25px var(--death-red),
+        0 0 50px var(--blood-red),
+        3px 3px 6px rgba(0, 0, 0, 0.8);
+    letter-spacing: 4px;
+    font-family: 'Impact', 'Arial Black', sans-serif;
 }
 
 .section-subtitle {
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
     color: var(--corpse-gray);
     margin-top: -10px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     font-weight: 500;
     font-style: italic;
+    letter-spacing: 2px;
 }
 
 /* Lessons Grid */
 .lessons-section {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 .lessons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .lesson-card {
-    background: rgba(26, 26, 26, 0.95);
+    background: rgba(26, 26, 26, 0.98);
     border-radius: 0;
-    padding: 30px 25px;
+    padding: 35px 30px;
     text-align: center;
     box-shadow:
-        0 0 30px rgba(139, 0, 0, 0.4),
-        inset 0 0 20px rgba(0, 0, 0, 0.8);
+        0 0 35px rgba(139, 0, 0, 0.5),
+        inset 0 0 25px rgba(0, 0, 0, 0.9);
     border: 2px solid var(--blood-red);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
 }
@@ -267,8 +306,8 @@ body::before {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.3), transparent);
-    transition: left 0.5s;
+    background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.4), transparent);
+    transition: left 0.6s;
 }
 
 .lesson-card:hover::before {
@@ -276,68 +315,70 @@ body::before {
 }
 
 .lesson-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.03);
     box-shadow:
-        0 0 50px rgba(255, 0, 0, 0.6),
-        0 10px 40px rgba(139, 0, 0, 0.5);
+        0 0 60px rgba(255, 0, 0, 0.7),
+        0 15px 50px rgba(139, 0, 0, 0.6);
     border-color: var(--death-red);
 }
 
 .lesson-icon {
-    font-size: 50px;
-    margin-bottom: 15px;
-    filter: drop-shadow(0 0 15px var(--death-red));
+    font-size: 55px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px var(--death-red));
 }
 
 .lesson-title {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 800;
     color: var(--death-red);
-    margin-bottom: 12px;
-    text-shadow: 0 0 15px var(--blood-red);
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px var(--blood-red);
+    letter-spacing: 1px;
 }
 
 .lesson-desc {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--corpse-gray);
-    line-height: 1.6;
-    margin-bottom: 15px;
+    line-height: 1.7;
+    margin-bottom: 18px;
 }
 
 .lesson-badge {
     display: inline-block;
     background: linear-gradient(135deg, var(--blood-red), var(--death-red));
     color: var(--ghost-white);
-    padding: 6px 16px;
+    padding: 8px 20px;
     border-radius: 0;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
-    box-shadow: 0 0 15px var(--blood-red);
+    box-shadow: 0 0 20px var(--blood-red);
     border: 1px solid var(--death-red);
+    letter-spacing: 2px;
 }
 
 /* Games Section */
 .games-section {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 .games-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
 }
 
 .game-card {
-    background: rgba(26, 26, 26, 0.95);
+    background: rgba(26, 26, 26, 0.98);
     border-radius: 0;
-    padding: 30px 25px;
+    padding: 35px 30px;
     text-align: center;
     box-shadow:
-        0 0 30px rgba(139, 0, 0, 0.4),
-        inset 0 0 20px rgba(0, 0, 0, 0.8);
+        0 0 35px rgba(139, 0, 0, 0.5),
+        inset 0 0 25px rgba(0, 0, 0, 0.9);
     border: 2px solid var(--blood-red);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
 }
@@ -349,8 +390,8 @@ body::before {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.3), transparent);
-    transition: left 0.5s;
+    background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.4), transparent);
+    transition: left 0.6s;
 }
 
 .game-card:hover::before {
@@ -358,45 +399,47 @@ body::before {
 }
 
 .game-card:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-8px) scale(1.03);
     box-shadow:
-        0 0 50px rgba(255, 0, 0, 0.6),
-        0 10px 40px rgba(139, 0, 0, 0.5);
+        0 0 60px rgba(255, 0, 0, 0.7),
+        0 15px 50px rgba(139, 0, 0, 0.6);
     border-color: var(--death-red);
 }
 
 .game-icon {
-    font-size: 50px;
-    margin-bottom: 15px;
-    filter: drop-shadow(0 0 15px var(--death-red));
-    animation: creepyFloat 4s ease-in-out infinite;
+    font-size: 55px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 20px var(--death-red));
+    animation: creepyFloat 5s ease-in-out infinite;
 }
 
 .game-title {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 800;
     color: var(--death-red);
-    margin-bottom: 12px;
-    text-shadow: 0 0 15px var(--blood-red);
+    margin-bottom: 15px;
+    text-shadow: 0 0 20px var(--blood-red);
+    letter-spacing: 1px;
 }
 
 .game-desc {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--corpse-gray);
-    line-height: 1.6;
-    margin-bottom: 15px;
+    line-height: 1.7;
+    margin-bottom: 18px;
 }
 
 .game-badge {
     display: inline-block;
     background: linear-gradient(135deg, var(--blood-red), var(--death-red));
     color: var(--ghost-white);
-    padding: 6px 16px;
+    padding: 8px 20px;
     border-radius: 0;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
-    box-shadow: 0 0 15px var(--blood-red);
+    box-shadow: 0 0 20px var(--blood-red);
     border: 1px solid var(--death-red);
+    letter-spacing: 2px;
 }
 
 /* Modal */
@@ -408,9 +451,9 @@ body::before {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(10px);
-    animation: fadeIn 0.3s ease;
+    background: rgba(0, 0, 0, 0.97);
+    backdrop-filter: blur(15px);
+    animation: fadeIn 0.4s ease;
 }
 
 @keyframes fadeIn {
@@ -425,22 +468,22 @@ body::before {
 
 .modal-content {
     background: rgba(26, 26, 26, 0.98);
-    margin: 5% auto;
-    padding: 40px;
+    margin: 3% auto;
+    padding: 50px;
     border-radius: 0;
-    max-width: 700px;
-    max-height: 85vh;
+    max-width: 900px;
+    max-height: 90vh;
     overflow-y: auto;
     box-shadow:
-        0 0 60px rgba(139, 0, 0, 0.6),
-        inset 0 0 30px rgba(0, 0, 0, 0.8);
+        0 0 70px rgba(139, 0, 0, 0.7),
+        inset 0 0 40px rgba(0, 0, 0, 0.9);
     border: 3px solid var(--blood-red);
     position: relative;
-    animation: slideDown 0.4s ease;
+    animation: slideDown 0.5s ease;
 }
 
 .modal-content::-webkit-scrollbar {
-    width: 10px;
+    width: 12px;
 }
 
 .modal-content::-webkit-scrollbar-track {
@@ -451,6 +494,7 @@ body::before {
 .modal-content::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, var(--blood-red), var(--death-red));
     border-radius: 0;
+    border: 1px solid var(--death-red);
 }
 
 .modal-content::-webkit-scrollbar-thumb:hover {
@@ -459,7 +503,7 @@ body::before {
 
 @keyframes slideDown {
     from {
-        transform: translateY(-50px);
+        transform: translateY(-80px);
         opacity: 0;
     }
 
@@ -471,110 +515,244 @@ body::before {
 
 .close {
     position: absolute;
-    right: 25px;
-    top: 20px;
-    font-size: 40px;
+    left: 20px;
+    top: 15px;
+    font-size: 50px;
     font-weight: 700;
     color: var(--death-red);
     cursor: pointer;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 20px var(--death-red);
+    transition: all 0.4s ease;
+    text-shadow: 0 0 25px var(--death-red);
+    z-index: 10000;
+    line-height: 1;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .close:hover {
     color: var(--warning-yellow);
-    transform: rotate(180deg);
-    text-shadow: 0 0 30px var(--warning-yellow);
+    transform: rotate(180deg) scale(1.2);
+    text-shadow: 0 0 40px var(--warning-yellow);
 }
 
 .lesson-content-title {
-    font-size: 28px;
-    font-weight: 800;
+    font-size: 32px;
+    font-weight: 900;
     color: var(--death-red);
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    margin-top: 20px;
     text-align: center;
-    text-shadow: 0 0 20px var(--death-red);
-    letter-spacing: 2px;
+    text-shadow: 0 0 25px var(--death-red);
+    letter-spacing: 3px;
+    font-family: 'Impact', 'Arial Black', sans-serif;
 }
 
 .lesson-content-body {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     border-radius: 0;
-    padding: 25px;
-    margin-bottom: 25px;
-    border: 1px solid rgba(139, 0, 0, 0.5);
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 2px solid rgba(139, 0, 0, 0.6);
 }
 
 .lesson-content-body h3 {
-    font-size: 20px;
+    font-size: 22px;
     color: var(--death-red);
-    margin: 20px 0 12px 0;
+    margin: 25px 0 15px 0;
     font-weight: 700;
-    text-shadow: 0 0 10px var(--blood-red);
+    text-shadow: 0 0 15px var(--blood-red);
 }
 
 .lesson-content-body p {
-    font-size: 16px;
+    font-size: 17px;
     color: var(--ghost-white);
-    line-height: 1.8;
-    margin-bottom: 15px;
+    line-height: 1.9;
+    margin-bottom: 18px;
 }
 
 .lesson-content-body ul,
 .lesson-content-body ol {
-    padding-right: 25px;
-    margin: 15px 0;
+    padding-right: 30px;
+    margin: 18px 0;
 }
 
 .lesson-content-body li {
-    font-size: 15px;
+    font-size: 16px;
     color: var(--corpse-gray);
-    margin-bottom: 10px;
-    line-height: 1.6;
+    margin-bottom: 12px;
+    line-height: 1.7;
 }
 
 /* Footer */
 .footer {
-    background: linear-gradient(180deg, rgba(26, 26, 26, 0.95), rgba(0, 0, 0, 0.95));
-    padding: 30px 0;
+    background: linear-gradient(180deg, rgba(26, 26, 26, 0.98), rgba(0, 0, 0, 0.98));
+    padding: 40px 0;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 80px;
     border-top: 3px solid var(--blood-red);
-    box-shadow: 0 -4px 30px rgba(139, 0, 0, 0.5);
+    box-shadow: 0 -5px 40px rgba(139, 0, 0, 0.6);
 }
 
 .copyright {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--corpse-gray);
     font-weight: 500;
+    letter-spacing: 2px;
 }
 
-/* Responsive */
+/* Responsive - Mobile First */
 @media (max-width: 768px) {
     .logo {
         font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    .dedication {
+        font-size: 11px;
+        letter-spacing: 1px;
     }
 
     .title-main {
         font-size: 32px;
+        letter-spacing: 2px;
     }
 
     .subtitle {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .welcome-card {
-        padding: 30px 20px;
+        padding: 35px 20px;
+    }
+
+    .section-title {
+        font-size: 26px;
+        letter-spacing: 2px;
+    }
+
+    .section-subtitle {
+        font-size: 14px;
     }
 
     .lessons-grid,
     .games-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .modal-content {
-        margin: 10% 15px;
+        margin: 3% 10px;
+        padding: 25px 15px;
+        max-height: 92vh;
+    }
+
+    .close {
+        left: 15px;
+        top: 10px;
+        font-size: 45px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .lesson-content-title {
+        font-size: 24px;
+        margin-top: 15px;
+        letter-spacing: 1px;
+    }
+
+    .lesson-content-body {
+        padding: 20px 15px;
+    }
+
+    .lesson-content-body h3 {
+        font-size: 19px;
+    }
+
+    .lesson-content-body p {
+        font-size: 15px;
+    }
+
+    .lesson-content-body li {
+        font-size: 14px;
+    }
+
+    .lesson-card,
+    .game-card {
         padding: 25px 20px;
+    }
+
+    .lesson-title,
+    .game-title {
+        font-size: 20px;
+    }
+
+    .lesson-desc,
+    .game-desc {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 15px 0;
+    }
+
+    .logo {
+        font-size: 22px;
+        letter-spacing: 1px;
+    }
+
+    .dedication {
+        font-size: 10px;
+    }
+
+    .title-main {
+        font-size: 26px;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .icon-large {
+        font-size: 60px;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .modal-content {
+        margin: 2% 8px;
+        padding: 20px 12px;
+    }
+
+    .close {
+        left: 10px;
+        top: 8px;
+        font-size: 40px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .lesson-content-title {
+        font-size: 20px;
+    }
+
+    .lesson-content-body {
+        padding: 15px 12px;
+    }
+
+    .lesson-content-body h3 {
+        font-size: 17px;
+    }
+
+    .lesson-content-body p {
+        font-size: 14px;
     }
 }
 
@@ -583,11 +761,11 @@ body::before {
 
     0%,
     100% {
-        opacity: 0.05;
+        opacity: 0.03;
     }
 
     50% {
-        opacity: 0.1;
+        opacity: 0.08;
     }
 }
 
@@ -601,9 +779,41 @@ body::after {
     background:
         repeating-linear-gradient(0deg,
             transparent 0px,
-            rgba(255, 0, 0, 0.03) 1px,
+            rgba(255, 0, 0, 0.02) 1px,
             transparent 2px);
-    animation: staticNoise 0.1s infinite;
+    animation: staticNoise 0.15s infinite;
     pointer-events: none;
     z-index: 9999;
+}
+
+/* Glitch Effect on Hover */
+.lesson-card:hover .lesson-title,
+.game-card:hover .game-title {
+    animation: textGlitch 0.3s infinite;
+}
+
+@keyframes textGlitch {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
 }

@@ -96,6 +96,149 @@ const lessons = {
             <p>مثال: دائرة نصف قطرها 7 سم (π = 22/7)</p>
             <p>المساحة = (22/7) × 7 × 7 = 154 سم²</p>
         `
+    },
+    5: {
+        title: "المثلثات والزوايا",
+        icon: "🔺",
+        content: `
+            <h3>📌 نظرية فيثاغورس</h3>
+            <p>في المثلث القائم الزاوية: مربع الوتر = مجموع مربعي الضلعين الآخرين</p>
+            
+            <h3>✨ الصيغة</h3>
+            <p><strong>أ² + ب² = ج²</strong></p>
+            <p>حيث ج هو الوتر (أطول ضلع)</p>
+            
+            <h3>💡 مثال</h3>
+            <p>مثلث قائم ضلعاه 3 سم و 4 سم، احسبي الوتر:</p>
+            <ul>
+                <li>ج² = 3² + 4²</li>
+                <li>ج² = 9 + 16 = 25</li>
+                <li>ج = 5 سم ✓</li>
+            </ul>
+        `
+    },
+    6: {
+        title: "الإحصاء والاحتمالات",
+        icon: "📈",
+        content: `
+            <h3>📌 الاحتمالات</h3>
+            <p>الاحتمال = عدد النواتج المرغوبة ÷ عدد النواتج الممكنة</p>
+            
+            <h3>✨ مثال</h3>
+            <p>ما احتمال الحصول على عدد زوجي عند رمي حجر نرد؟</p>
+            <ul>
+                <li>الأعداد الزوجية: 2، 4، 6 (3 نواتج)</li>
+                <li>النواتج الممكنة: 6</li>
+                <li>الاحتمال = 3/6 = 1/2 ✓</li>
+            </ul>
+            
+            <h3>💡 التباديل والتوافيق</h3>
+            <p>التباديل: الترتيب مهم | التوافيق: الترتيب غير مهم</p>
+        `
+    },
+    7: {
+        title: "المعادلات التربيعية",
+        icon: "⚡",
+        content: `
+            <h3>📌 الصيغة العامة</h3>
+            <p>أس² + ب س + ج = 0</p>
+            
+            <h3>✨ طرق الحل</h3>
+            <p><strong>1. التحليل إلى العوامل</strong></p>
+            <p>س² + 5س + 6 = 0</p>
+            <p>(س + 2)(س + 3) = 0</p>
+            <p>الحلول: س = -2 أو س = -3</p>
+            
+            <h3>💡 القانون العام</h3>
+            <p>س = (-ب ± √(ب² - 4أج)) / 2أ</p>
+        `
+    },
+    8: {
+        title: "التحليل إلى العوامل",
+        icon: "🔄",
+        content: `
+            <h3>📌 أنواع التحليل</h3>
+            <p>1. العامل المشترك الأكبر</p>
+            <p>2. الفرق بين مربعين</p>
+            <p>3. المربع الكامل</p>
+            
+            <h3>✨ الفرق بين مربعين</h3>
+            <p><strong>أ² - ب² = (أ + ب)(أ - ب)</strong></p>
+            <p>مثال: س² - 9 = (س + 3)(س - 3)</p>
+            
+            <h3>💡 المربع الكامل</h3>
+            <p>أ² + 2أب + ب² = (أ + ب)²</p>
+        `
+    },
+    9: {
+        title: "الأعداد الحقيقية",
+        icon: "🎯",
+        content: `
+            <h3>📌 الجذور التربيعية</h3>
+            <p>√أ × √ب = √(أ × ب)</p>
+            <p>√أ / √ب = √(أ / ب)</p>
+            
+            <h3>✨ تبسيط الجذور</h3>
+            <p>√18 = √(9 × 2) = 3√2</p>
+            <p>√50 = √(25 × 2) = 5√2</p>
+            
+            <h3>💡 الأعداد النسبية وغير النسبية</h3>
+            <p>النسبية: يمكن كتابتها ككسر (1/2، 0.5)</p>
+            <p>غير النسبية: لا يمكن كتابتها ككسر (√2، π)</p>
+        `
+    },
+    10: {
+        title: "التشابه والتطابق",
+        icon: "📐",
+        content: `
+            <h3>📌 التطابق</h3>
+            <p>مثلثان متطابقان إذا تساوت أضلاعهما وزواياهما</p>
+            
+            <h3>✨ حالات التطابق</h3>
+            <ul>
+                <li>ضلع - زاوية - ضلع (ض ز ض)</li>
+                <li>زاوية - ضلع - زاوية (ز ض ز)</li>
+                <li>ضلع - ضلع - ضلع (ض ض ض)</li>
+            </ul>
+            
+            <h3>💡 التشابه</h3>
+            <p>مثلثان متشابهان إذا تساوت زواياهما وتناسبت أضلاعهما</p>
+        `
+    },
+    11: {
+        title: "الدائرة",
+        icon: "🌐",
+        content: `
+            <h3>📌 محيط الدائرة</h3>
+            <p><strong>المحيط = 2 × π × نصف القطر</strong></p>
+            <p>أو: المحيط = π × القطر</p>
+            
+            <h3>✨ مساحة الدائرة</h3>
+            <p><strong>المساحة = π × نصف القطر²</strong></p>
+            
+            <h3>💡 القطاع الدائري</h3>
+            <p>مساحة القطاع = (الزاوية/360) × π × نصف القطر²</p>
+            <p>طول القوس = (الزاوية/360) × 2 × π × نصف القطر</p>
+        `
+    },
+    12: {
+        title: "الحجوم والمساحات",
+        icon: "📦",
+        content: `
+            <h3>📌 حجم المكعب</h3>
+            <p><strong>الحجم = الضلع³</strong></p>
+            <p>مثال: مكعب طول ضلعه 4 سم</p>
+            <p>الحجم = 4³ = 64 سم³</p>
+            
+            <h3>✨ حجم متوازي المستطيلات</h3>
+            <p><strong>الحجم = الطول × العرض × الارتفاع</strong></p>
+            
+            <h3>💡 حجم الأسطوانة</h3>
+            <p><strong>الحجم = π × نصف القطر² × الارتفاع</strong></p>
+            
+            <h3>🎯 حجم الكرة</h3>
+            <p><strong>الحجم = (4/3) × π × نصف القطر³</strong></p>
+        `
     }
 };
 
@@ -122,6 +265,7 @@ function openLesson(lessonId) {
 
     const modal = document.getElementById('lessonModal');
     const content = document.getElementById('lessonContent');
+    const header = document.querySelector('.header');
 
     content.innerHTML = `
         <div class="lesson-content-title">
@@ -134,20 +278,28 @@ function openLesson(lessonId) {
 
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    if (header) header.style.display = 'none';
 }
 
 // Close Lesson Modal
 function closeLesson() {
     const modal = document.getElementById('lessonModal');
+    const header = document.querySelector('.header');
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    if (header) header.style.display = 'block';
 }
 
 // Close modal when clicking outside
 window.onclick = function (event) {
-    const modal = document.getElementById('lessonModal');
-    if (event.target === modal) {
+    const lessonModal = document.getElementById('lessonModal');
+    const gameModal = document.getElementById('gameModal');
+
+    if (event.target === lessonModal) {
         closeLesson();
+    }
+    if (event.target === gameModal) {
+        closeGame();
     }
 }
 
@@ -165,6 +317,7 @@ document.addEventListener('keydown', (e) => {
 function openGame(gameId) {
     const modal = document.getElementById('gameModal');
     const content = document.getElementById('gameContent');
+    const header = document.querySelector('.header');
 
     let gameHTML = '';
 
@@ -183,6 +336,7 @@ function openGame(gameId) {
     content.innerHTML = gameHTML;
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
+    if (header) header.style.display = 'none';
 
     // Initialize game after modal opens
     setTimeout(() => {
@@ -195,8 +349,10 @@ function openGame(gameId) {
 // Close Game Modal
 function closeGame() {
     const modal = document.getElementById('gameModal');
+    const header = document.querySelector('.header');
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
+    if (header) header.style.display = 'block';
 }
 
 // Game 1: Memory Cards
