@@ -1,219 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة رياضيات - الصف الثالث متوسط 💕</title>
-    <meta name="description" content="منصة تعليمية تفاعلية لمنهج الرياضيات - الصف الثالث متوسط">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="platform-style.css">
-</head>
-
-<body>
-    <!-- Background Decorations -->
-    <div class="bg-decoration decoration-1"></div>
-    <div class="bg-decoration decoration-2"></div>
-    <div class="bg-decoration decoration-3"></div>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <span class="logo-icon">📚</span>
-                    <h1>منصة رياضيات</h1>
-                </div>
-                <div class="header-right">
-                    <button id="musicToggle" class="music-toggle">
-                        <span class="music-icon">🎵</span>
-                        <span class="music-text">موسيقى هادئة</span>
-                    </button>
-                    <div class="header-dedication">
-                        <p>💝 مُهدى لهناء المتميزة</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <!-- Welcome Section -->
-            <section id="welcomeSection" class="welcome-section">
-                <div class="welcome-card">
-                    <div class="welcome-icon">✨</div>
-                    <h2 class="welcome-title">أهلاً بكِ في منصة الرياضيات</h2>
-                    <p class="welcome-subtitle">الصف الثالث متوسط - المنهج السعودي</p>
-                    <div class="dedication-box">
-                        <p>🌸 إلى هناء الذكية والمجتهدة، صاحبة العقل النير والقلب الطيب 💖</p>
-                        <p>هذه المنصة مُصممة خصيصاً لكِ لتتعلمي وتتفوقي 🌟</p>
-                    </div>
-                    <button id="startLearningBtn" class="btn btn-primary">
-                        <span>ابدأي التعلم</span>
-                        <span class="btn-icon">🚀</span>
-                    </button>
-                </div>
-            </section>
-
-            <!-- Curriculum Section -->
-            <section id="curriculumSection" class="curriculum-section" style="display: none;">
-                <div class="section-header">
-                    <h2>📖 المنهج الدراسي</h2>
-                    <p>اختاري الفصل الدراسي للبدء</p>
-                </div>
-
-                <!-- Semester Tabs -->
-                <div class="semester-tabs">
-                    <button class="semester-tab active" data-semester="1">
-                        <span class="tab-icon">📘</span>
-                        <span>الفصل الأول</span>
-                    </button>
-                    <button class="semester-tab" data-semester="2">
-                        <span class="tab-icon">📗</span>
-                        <span>الفصل الثاني</span>
-                    </button>
-                    <button class="semester-tab" data-semester="3">
-                        <span class="tab-icon">📙</span>
-                        <span>الفصل الثالث</span>
-                    </button>
-                </div>
-
-                <!-- Chapters Container -->
-                <div id="chaptersContainer" class="chapters-container">
-                    <!-- Chapters will be loaded here -->
-                </div>
-            </section>
-
-            <!-- Lesson Section -->
-            <section id="lessonSection" class="lesson-section" style="display: none;">
-                <button id="backToChapters" class="back-btn">
-                    <span>←</span>
-                    <span>العودة للفصول</span>
-                </button>
-
-                <div class="lesson-card">
-                    <div class="lesson-header">
-                        <h2 id="lessonTitle"></h2>
-                        <div class="lesson-meta">
-                            <span class="lesson-number" id="lessonNumber"></span>
-                        </div>
-                    </div>
-
-                    <div class="lesson-content" id="lessonContent">
-                        <!-- Lesson content will be loaded here -->
-                    </div>
-
-                    <div class="lesson-dedication">
-                        <p>💕 استمري في التميز يا هناء، أنتِ رائعة! 🌟</p>
-                    </div>
-
-                    <button id="startQuizBtn" class="btn btn-primary">
-                        <span>ابدأي الاختبار القصير</span>
-                        <span class="btn-icon">📝</span>
-                    </button>
-                </div>
-            </section>
-
-            <!-- Quiz Section -->
-            <section id="quizSection" class="quiz-section" style="display: none;">
-                <div class="quiz-card">
-                    <div class="quiz-header">
-                        <div class="quiz-progress">
-                            <span id="quizQuestionNum">1</span> / 3
-                        </div>
-                        <div class="quiz-score">
-                            النقاط: <span id="quizScore">0</span>
-                        </div>
-                    </div>
-
-                    <div class="quiz-question">
-                        <h3 id="quizQuestionText"></h3>
-                    </div>
-
-                    <div id="quizAnswersContainer" class="quiz-answers">
-                        <!-- Quiz answers will be loaded here -->
-                    </div>
-
-                    <button id="nextQuizBtn" class="btn btn-secondary" style="display: none;">
-                        <span>السؤال التالي</span>
-                        <span class="btn-icon">→</span>
-                    </button>
-                </div>
-            </section>
-
-            <!-- Quiz Results Section -->
-            <section id="quizResultsSection" class="quiz-results-section" style="display: none;">
-                <div class="results-card">
-                    <div class="results-icon" id="resultsIcon">🎉</div>
-                    <h2 class="results-title" id="resultsTitle">رائع!</h2>
-
-                    <div class="results-score">
-                        <div class="score-big" id="finalQuizScore">3</div>
-                        <div class="score-label">من 3</div>
-                    </div>
-
-                    <div class="results-message" id="resultsMessage"></div>
-
-                    <div class="dedication-box">
-                        <p>🌟 أحسنتِ يا هناء! فخورة بكِ دائماً 💖</p>
-                    </div>
-
-                    <div class="results-actions">
-                        <button id="retryQuizBtn" class="btn btn-secondary">
-                            <span>إعادة الاختبار</span>
-                            <span class="btn-icon">🔄</span>
-                        </button>
-                        <button id="continueBtn" class="btn btn-primary">
-                            <span>متابعة التعلم</span>
-                            <span class="btn-icon">→</span>
-                        </button>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-dedication">
-                <p>💝 مُهدى بكل حب لهناء، الفتاة المتميزة والمجتهدة 🌸</p>
-            </div>
-            <div class="copyright">
-                <p>© 2024 Abdulaziz. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Background Music -->
-    <audio id="backgroundMusic" loop preload="auto">
-        <!-- Using a calming piano melody -->
-        <source src="https://cdn.pixabay.com/audio/2022/03/10/audio_4a8bd5e5a0.mp3" type="audio/mpeg">
-    </audio>
-
-    <!-- Audio Elements -->
-    <audio id="clickSound" preload="auto">
-        <source
-            src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBTGH0fPTgjMGHm7A7+OZUQ0PVqzn77BdGAg+ltryxnMpBSuBzvLZiTYIGWi77eefTRAMUKfj8LZjHAY4ktfyzHksBSR3x/DdkEAKFF606+uoVRQKRp/g8r5sIQUxh9Hz04IzBh5uwO/jmVENEFas5++wXRgIPpba8sZzKQUrgc7y2Yk2CBlou+3nn00QDFC"
-            type="audio/wav">
-    </audio>
-    <audio id="correctSound" preload="auto">
-        <source
-            src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBTGH0fPTgjMGHm7A7+OZUQ0PVqzn77BdGAg+ltryxnMpBSuBzvLZiTYIGWi77eefTRAMUKfj8LZjHAY4ktfyzHksBSR3x/DdkEAKFF606+uoVRQKRp/g8r5sIQUxh9Hz04IzBh5uwO/jmVENEFas5++wXRgIPpba8sZzKQUrgc7y2Yk2CBlou+3nn00QDFC"
-            type="audio/wav">
-    </audio>
-    <audio id="wrongSound" preload="auto">
-        <source
-            src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBTGH0fPTgjMGHm7A7+OZUQ0PVqzn77BdGAg+ltryxnMpBSuBzvLZiTYIGWi77eefTRAMUKfj8LZjHAY4ktfyzHksBSR3x/DdkEAKFF606+uoVRQKRp/g8r5sIQUxh9Hz04IzBh5uwO/jmVENEFas5++wXRgIPpba8sZzKQUrgc7y2Yk2CBlou+3nn00QDFC"
-            type="audio/wav">
-    </audio>
-
-    <script src="platform-script.js"></script>
-</body>
-
-</html>
