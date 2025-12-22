@@ -536,6 +536,40 @@ body {
     font-weight: 600;
 }
 
+/* Dedication Sections */
+.dedication {
+    margin-top: 20px;
+    padding: 15px 18px;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(196, 113, 237, 0.1));
+    border-radius: 12px;
+    border: 2px solid var(--secondary-pink);
+    text-align: center;
+}
+
+.dedication p {
+    font-size: 15px;
+    color: var(--primary-pink);
+    font-weight: 700;
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+}
+
+.dedication-small {
+    margin-top: 12px;
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.08), rgba(196, 113, 237, 0.08));
+    border-radius: 10px;
+    text-align: center;
+}
+
+.dedication-small p {
+    font-size: 14px;
+    color: var(--primary-pink);
+    font-weight: 600;
+    margin: 0;
+}
+
 .copyright {
     margin-top: 30px;
     padding-top: 18px;
