@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>اختبر فهمك - رياضيات ثالث متوسط</title>
+    <meta name="description" content="اختبار تفاعلي لمادة الرياضيات - الصف الثالث المتوسط">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- شاشة البداية -->
+    <div id="welcomeScreen" class="screen active">
+        <div class="container">
+            <div class="welcome-content">
+                <div class="math-icon">📐</div>
+                <h1 class="gradient-text">عزوز + هنو - اختبر فهمك</h1>
+                <p class="subtitle">رياضيات - ثالث متوسط</p>
+                <p class="description">اختبار شامل للفصول الأربعة الأولى</p>
+
+                <div class="chapters-info">
+                    <div class="chapter-card">
+                        <span class="chapter-emoji">📘</span>
+                        <span>المعادلات الخطية</span>
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-emoji">📗</span>
+                        <span>العلاقات والدوال الخطية</span>
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-emoji">📙</span>
+                        <span>الدوال الخطية</span>
+                    </div>
+                    <div class="chapter-card">
+                        <span class="chapter-emoji">📕</span>
+                        <span>المتباينات الخطية</span>
+                    </div>
+                </div>
+
+                <div class="student-info">
+                    <input type="text" id="studentName" placeholder="أدخل اسمك (اختياري)" class="name-input">
+                </div>
+
+                <button class="btn-primary" onclick="startQuiz()">
+                    <span>ابدأ الاختبار</span>
+                    <span class="btn-icon">✨</span>
+                </button>
+
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">💡</span>
+                        <span>تلميحات مساعدة</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📊</span>
+                        <span>نتائج فورية</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🎯</span>
+                        <span>أسئلة متدرجة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- شاشة الاختبار -->
+    <div id="quizScreen" class="screen">
+        <div class="container">
+            <!-- Header -->
+            <div class="quiz-header">
+                <div class="student-name-display" id="studentNameDisplay"></div>
+                <div class="progress-info">
+                    <span class="question-counter">
+                        <span id="currentQuestion">1</span> / <span id="totalQuestions">20</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- شريط التقدم -->
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <!-- بطاقة السؤال -->
+            <div class="question-card">
+                <div class="chapter-badge" id="chapterBadge"></div>
+                <div class="difficulty-badge" id="difficultyBadge"></div>
+
+                <h2 class="question-text" id="questionText"></h2>
+
+                <div class="options-container" id="optionsContainer"></div>
+
+                <!-- قسم التلميحات -->
+                <div class="hint-section" id="hintSection">
+                    <button class="hint-button" onclick="showHint()">
+                        <span class="hint-icon">💡</span>
+                        <span>هل تحتاج مساعدة؟</span>
+                    </button>
+                    <div class="hint-content" id="hintContent"></div>
+                </div>
+
+                <!-- أزرار التنقل -->
+                <div class="navigation-buttons">
+                    <button class="btn-secondary" id="nextButton" onclick="nextQuestion()" disabled>
+                        <span>التالي</span>
+                        <span>←</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- شاشة النتائج -->
+    <div id="resultsScreen" class="screen">
+        <div class="container">
+            <div class="results-content">
+                <div class="results-icon" id="resultsIcon"></div>
+                <h1 class="results-title" id="resultsTitle"></h1>
+                <p class="results-message" id="resultsMessage"></p>
+
+                <div class="score-circle">
+                    <svg viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="90" class="score-bg"></circle>
+                        <circle cx="100" cy="100" r="90" class="score-progress" id="scoreCircle"></circle>
+                    </svg>
+                    <div class="score-text">
+                        <div class="score-number" id="scoreNumber">0%</div>
+                        <div class="score-label">النتيجة النهائية</div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card correct">
+                        <div class="stat-icon">✓</div>
+                        <div class="stat-number" id="correctAnswers">0</div>
+                        <div class="stat-label">إجابات صحيحة</div>
+                    </div>
+                    <div class="stat-card wrong">
+                        <div class="stat-icon">✗</div>
+                        <div class="stat-number" id="wrongAnswers">0</div>
+                        <div class="stat-label">إجابات خاطئة</div>
+                    </div>
+                    <div class="stat-card hints">
+                        <div class="stat-icon">💡</div>
+                        <div class="stat-number" id="hintsUsed">0</div>
+                        <div class="stat-label">تلميحات مستخدمة</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="restartQuiz()">
+                        <span>إعادة الاختبار</span>
+                        <span class="btn-icon">🔄</span>
+                    </button>
+                </div>
+
+                <div class="encouragement" id="encouragement"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
